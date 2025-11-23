@@ -1,0 +1,8 @@
+const audioRef = useRef(null);
+   const handleUserClick = () => {
+    if (!audioRef.current) return;
+    audioRef.current.currentTime = 0;
+    audioRef.current.play().catch(err => console.warn("Audio blocked:", err));
+  };
+  <div onClick={handleUserClick}  style={{ padding: '2rem', fontFamily: 'Arial, sans-serif',height: '100vh', }}></div>
+  <audio ref={audioRef} src="/alarm.mp3" preload="auto" loop playsInline />
